@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALUH | Flores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --rosa-fuerte: #darksalmon; 
+        }
+
+        .seccion-fondo-flores {
+            position: relative;
+            padding: 80px 0;
+            background-image: url('img/fondo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .seccion-fondo-flores::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); 
+            z-index: 1;
+        }
+
+        .seccion-fondo-flores .container {
+            position: relative;
+            z-index: 2; 
+        }
+
+        .card-producto {
+            background-color: #ffffff !important;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card-producto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logokaluh.jpeg" alt="Logo" width="45" height="45" class="rounded-circle">
+                <span class="fw-bold ms-2" style="color: darksalmon;">🌸 KALUH</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="flores.html">Flores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="desayunos.html">Desayunos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="decoraciones.html">Decoraciones</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="personalizar.html">Personalizar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carrito.html"><i class="bi bi-cart3"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="seccion-fondo-flores">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: darksalmon;">Nuestros Arreglos Florales</h2>
+                    <p class="text-dark">Expresa tus sentimientos con la frescura de nuestras flores.</p>
+                    <hr class="mx-auto" style="width: 100px; height: 3px; background-color: darksalmon; opacity: 1;">
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/rosasrojas.webp" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Ramo Clásico 12 Rosas</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.800</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Ramo 12 Rosas', 45000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/arreglo-gerberas.jpg" class="card-img-top" alt="Caja de Girasoles">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Caja Sol de Verano</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada, gerberas y astromelias.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.650</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Caja Sol Verano', 65000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+<div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/multicolor.png" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Canasta Multicolor</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.900</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Canasta Multicolor', 90000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/elegancia-rosa.png" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Ramo Elegancia Rosa</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.700</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Ramo Elegancia Rosa', 70000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/lirios.jpg" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Ramo Clásico 6 Lirios</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.800</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Ramo Clásico 6 Lirios', 80000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/dulce-amor.webp" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Caja Dulce Amor</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.850</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Caja Dulce Amor', 85000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/osopeluche.webp" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Ternura floreciendo</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y oso de peluche.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.1,300</p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Ternura floreciendo', 130000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-producto">
+                        <img src="img/arreglo-hombre.jpg" class="card-img-top" alt="Ramo de Rosas">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title h6 fw-bold text-dark">Uno para él, elige la botella</h5>
+                            <p class="card-text text-muted small">Incluye tarjeta personalizada y moño.</p>
+                            <p class="fw-bold text-dark mt-auto fs-5">L.2,000 (precio sujeto a botella de elección) </p>
+                            <button class="btn btn-sm text-white rounded-pill py-2" 
+                                    style="background-color: darksalmon;"
+                                    onclick="agregarAlCarrito('Uno para él, elige la botella', 200000)">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div> </div> </section>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            alert("¡" + nombre + " se añadió al carrito!");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALUH | Arma tu Detalle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .card-personalizar {
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #eee;
+            background-color: white !important; /* Asegura que sean blancas */
+        }
+        .card-personalizar:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .img-personalizar {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #fffafa;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="color: darksalmon;">🌸 KALUH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="flores.html">Flores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="desayunos.html">Desayunos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="decoraciones.html">Decoraciones</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="personalizar.html">Personalizar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carrito.html"><i class="bi bi-cart3"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: darksalmon;">Arma tu Regalo Paso a Paso</h2>
+            <p class="text-muted">Añade cada elemento por separado a tu carrito</p>
+        </div>
+
+        <h4 class="mb-4"><i class="bi bi-1-square-fill" style="color: darksalmon;"></i> Paso 1: Elige la Base</h4>
+        <div class="row mb-5">
+            <div class="col-6 col-md-4 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/cajas.jpg" class="img-personalizar mb-2" alt="Caja">
+                    <h6>Empaque Especial</h6>
+                    <select class="form-select form-select-sm mb-3" id="formaCaja">
+                        <option value="Cuadrada">Forma: Cuadrada</option>
+                        <option value="Corazón">Forma: Corazón</option>
+                        <option value="Redonda">Forma: Redonda</option>
+                    </select>
+                    <p class="fw-bold">L150</p>
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="fCaja = document.getElementById('formaCaja').value; agregarAlCarrito('Caja ' + fCaja, 150)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/canastas.webp" class="img-personalizar mb-2" alt="Canasta">
+                    <h6>Canasta de Mimbre</h6>
+                    <select class="form-select form-select-sm mb-3" id="tamanoCanasta">
+                        <option value="Pequeña" data-p="120">Pequeña (L120)</option>
+                        <option value="Mediana" data-p="180">Mediana (L180)</option>
+                        <option value="Grande" data-p="250">Grande (L250)</option>
+                    </select>
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="selCan = document.getElementById('tamanoCanasta'); 
+                                     txtCan = selCan.options[selCan.selectedIndex].value; 
+                                     preCan = selCan.options[selCan.selectedIndex].getAttribute('data-p'); 
+                                     agregarAlCarrito('Canasta ' + txtCan, parseInt(preCan))">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mb-4"><i class="bi bi-flower1" style="color: darksalmon;"></i> Paso 2: Elige tus Flores</h4>
+        <div class="row mb-5">
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/rosas.jpg" class="img-personalizar mb-2" alt="Rosas">
+                    <h6>Rosas</h6>
+                    <select class="form-select form-select-sm mb-2" id="colRosa">
+                        <option value="Rojas">Rojas</option>
+                        <option value="Blancas">Blancas</option>
+                        <option value="Rosadas">Rosadas</option>
+                        <option value="Naranjas">Naranjas</option>
+                    </select>
+                    <input type="number" id="cantRosa" class="form-control form-control-sm mb-2" value="1" min="1">
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="cR = document.getElementById('colRosa').value; nR = document.getElementById('cantRosa').value; agregarAlCarrito(nR + ' Rosas ' + cR, nR * 50)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/gerbera.jpeg" class="img-personalizar mb-2" alt="Gerberas">
+                    <h6>Gerberas</h6>
+                    <select class="form-select form-select-sm mb-2" id="colGer">
+                        <option value="Amarillas">Amarillas</option>
+                        <option value="Naranjas">Naranjas</option>
+                        <option value="Rosadas">Rosadas</option>
+                        <option value="Rojas">Rojas</option>
+                    </select>
+                    <input type="number" id="cantGer" class="form-control form-control-sm mb-2" value="1" min="1">
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="cG = document.getElementById('colGer').value; nG = document.getElementById('cantGer').value; agregarAlCarrito(nG + ' Gerberas ' + cG, nG * 60)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm h-100">
+                    <img src="img/lirios.jpg" class="img-personalizar mb-2" alt="Lirios">
+                    <h6>Lirios</h6>
+                    <input type="number" id="cantLirio" class="form-control form-control-sm mb-2 mt-auto" value="1" min="1">
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="nL = document.getElementById('cantLirio').value; agregarAlCarrito(nL + ' Lirios', nL * 80)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm h-100">
+                    <img src="img/girasoles.webp" class="img-personalizar mb-2" alt="Girasoles">
+                    <h6>Girasoles</h6>
+                    <input type="number" id="cantGira" class="form-control form-control-sm mb-2 mt-auto" value="1" min="1">
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="nGi = document.getElementById('cantGira').value; agregarAlCarrito(nGi + ' Girasoles', nGi * 70)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mb-4"><i class="bi bi-3-square-fill" style="color: darksalmon;"></i> Paso 3: Complementos</h4>
+        <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/osito.jpg" class="img-personalizar mb-2" alt="Peluche">
+                    <h6>Peluche</h6>
+                    <p class="fw-bold">L100</p>
+                    <button class="btn btn-sm text-white" style="background-color: darksalmon;" onclick="agregarAlCarrito('Extra: Peluche', 100)">Añadir</button>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                    <img src="img/ferrero.avif" class="img-personalizar mb-2" alt="Chocolates">
+                    <h6>Ferrero</h6>
+                    <input type="number" id="cantChoc" class="form-control form-control-sm mb-2" value="1" min="1">
+                    <button class="btn btn-sm text-white w-100" style="background-color: darksalmon;" 
+                            onclick="nC = document.getElementById('cantChoc').value; agregarAlCarrito(nC + ' Chocolates', nC * 40)">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <div class="card card-personalizar text-center p-3 shadow-sm">
+                 <img src="img/botellas.jpg" class="img-personalizar mb-2" alt="vino">
+                    <h6>Botella de vino pequeña</h6>
+                    <p class="fw-bold">L350</p>
+                    <button class="btn btn-sm text-white" style="background-color: darksalmon;" onclick="agregarAlCarrito('Extra: Vino', 350)">Añadir</button>
+                </div>
+            </div>
+
+<div class="col-6 col-md-3 mb-4">
+    <div class="card card-personalizar text-center p-3 shadow-sm h-100">
+        <img src="img/chocolates-varios.jpg" class="img-personalizar mb-2" alt="Golosinas">
+        <h6>Golosinas Varias</h6>
+        
+        <select class="form-select form-select-sm mb-2" id="tipoGolosina">
+            <option value="chocolates varios" data-p="25"> chocolates mini (L25)</option>
+            <option value="M&Ms" data-p="45">M&M's (L45)</option>
+            <option value="semillas" data-p="50">Semillas (L50)</option>
+        </select>
+
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Cant.</span>
+            <input type="number" id="cantGolo" class="form-control" value="1" min="1">
+        </div>
+
+        <button class="btn btn-sm text-white w-100 mt-auto" style="background-color: darksalmon;" 
+            onclick="
+                selG = document.getElementById('tipoGolosina');
+                nomG = selG.options[selG.selectedIndex].value;
+                preG = selG.options[selG.selectedIndex].getAttribute('data-p');
+                numG = document.getElementById('cantGolo').value;
+                agregarAlCarrito(numG + ' ' + nomG, numG * parseInt(preG))">
+            Añadir
+        </button>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            alert("¡Se añadió " + nombre + " al carrito!");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
